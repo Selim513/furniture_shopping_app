@@ -1,8 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:furniture_shopping_app/feature/views/main_view/home.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:furniture_shopping_app/core/auth/cubit.dart';
+import 'package:furniture_shopping_app/feature/views/boarding.dart';
+import 'package:furniture_shopping_app/firebase_options.dart';
 import 'package:furniture_shopping_app/theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MainApp());
 }
 
@@ -11,9 +18,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: themeData,
-        debugShowCheckedModeBanner: false,
-        home: const HomeView());
+    return BlocProvider(
+      create: (context) => AuthCubit(),
+      child: MaterialApp(
+          theme: themeData,
+          debugShowCheckedModeBanner: false,
+          home: const GetStartedView()),
+    );
   }
 }
