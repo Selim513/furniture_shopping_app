@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
 import 'package:furniture_shopping_app/core/functions/email_validate.dart';
 import 'package:furniture_shopping_app/core/functions/route.dart';
-import 'package:furniture_shopping_app/feature/views/main_view/home.dart';
+import 'package:furniture_shopping_app/feature/views/home/home.dart';
 import 'package:furniture_shopping_app/feature/views/register_login/register.dart';
 import 'package:furniture_shopping_app/feature/widgets/custom_textform.dart';
 import 'package:furniture_shopping_app/feature/widgets/custombutton.dart';

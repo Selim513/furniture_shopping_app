@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,7 +6,7 @@ import 'package:furniture_shopping_app/core/auth/cubit_state.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
 import 'package:furniture_shopping_app/core/functions/email_validate.dart';
 import 'package:furniture_shopping_app/core/functions/route.dart';
-import 'package:furniture_shopping_app/feature/views/main_view/home.dart';
+import 'package:furniture_shopping_app/feature/views/home/home.dart';
 import 'package:furniture_shopping_app/feature/views/register_login/login.dart';
 import 'package:furniture_shopping_app/feature/widgets/custom_textform.dart';
 import 'package:furniture_shopping_app/feature/widgets/scaffoldMessenger.dart';
@@ -35,7 +34,6 @@ class _RegisterViewState extends State<RegisterView> {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) async {
         if (state is RegisterSuccessState) {
-          var user = FirebaseAuth.instance.currentUser;
           ShowSuccessMessage(state.successMessage, context);
           gotoPushReplacement(context, const HomeView());
         } else if (state is RegisterErrorState) {
