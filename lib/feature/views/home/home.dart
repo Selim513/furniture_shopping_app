@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
+import 'package:furniture_shopping_app/core/functions/route.dart';
+import 'package:furniture_shopping_app/feature/views/home/order_details.dart';
 import 'package:furniture_shopping_app/feature/widgets/CategoriesWidget.dart';
 import 'package:gap/gap.dart';
 
@@ -71,7 +73,10 @@ class _HomeViewState extends State<HomeView> {
                                 bottom: 5,
                                 right: 5,
                                 child: CustomIconButton(
-                                  ontap: () {},
+                                  ontap: () {
+                                    gotoPushReplacement(
+                                        context, const OrderDetailsView());
+                                  },
                                   icon: const Icon(
                                     Icons.shopping_bag,
                                     color: Colors.white,

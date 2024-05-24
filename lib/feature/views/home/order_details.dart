@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
+import 'package:furniture_shopping_app/core/functions/route.dart';
+import 'package:furniture_shopping_app/feature/views/home/bottomNavBar.dart';
 import 'package:furniture_shopping_app/feature/widgets/custombutton.dart';
 import 'package:gap/gap.dart';
 
@@ -43,7 +45,9 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                         shape: ContinuousRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                         backgroundColor: Colors.white),
-                    onPressed: () {},
+                    onPressed: () {
+                      gotoPushReplacement(context, const BottomNavBarView());
+                    },
                     icon: const Icon(Icons.arrow_back_ios_new_outlined)),
               )),
           Expanded(

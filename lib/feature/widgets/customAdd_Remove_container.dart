@@ -5,16 +5,18 @@ class CustomAdd_remove_Container extends StatelessWidget {
     super.key,
     required this.icon,
     required this.ontap,
+    this.padding = const EdgeInsets.all(10),
   });
   final Widget icon;
   final Function()? ontap;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: ontap,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: padding,
         child: Container(
             alignment: Alignment.center,
             height: 30,
