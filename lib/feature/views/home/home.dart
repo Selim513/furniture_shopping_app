@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
 import 'package:furniture_shopping_app/core/functions/route.dart';
 import 'package:furniture_shopping_app/feature/views/home/order_details.dart';
+import 'package:furniture_shopping_app/feature/views/myCart/mycart.dart';
 import 'package:furniture_shopping_app/feature/widgets/CategoriesWidget.dart';
 import 'package:gap/gap.dart';
 
@@ -26,7 +27,10 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: Colors.white,
         actions: [
           IconButton(
-              onPressed: () {}, icon: const Icon(CupertinoIcons.shopping_cart))
+              onPressed: () {
+                gotoPush(context, const MyCartView());
+              },
+              icon: const Icon(CupertinoIcons.shopping_cart))
         ],
         leading: IconButton(
             onPressed: () {}, icon: const Icon(CupertinoIcons.search)),

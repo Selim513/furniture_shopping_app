@@ -99,7 +99,10 @@ class FavoritesView extends StatelessWidget {
                               height: 20,
                               width: 20,
                               icon: 'shopping_bag',
-                              ontap: () {},
+                              ontap: () {
+                                gotoPushReplacement(
+                                    context, const MyCartView());
+                              },
                             ),
                           ),
                         ),

@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_shopping_app/core/auth/cubit.dart';
-import 'package:furniture_shopping_app/feature/views/home/bottomNavBar.dart';
+import 'package:furniture_shopping_app/feature/views/myCart/checkout.dart';
 import 'package:furniture_shopping_app/firebase_options.dart';
 import 'package:furniture_shopping_app/theme.dart';
 
@@ -24,7 +24,7 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
           theme: themeData,
           debugShowCheckedModeBanner: false,
-          home: const BottomNavBarView()
+          home: const CheckOutView()
           //  FirebaseAuth.instance.currentUser == null
           //     ? const GetStartedView()
           //     : const BottomNavBarView()

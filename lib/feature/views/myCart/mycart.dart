@@ -15,6 +15,8 @@ class MyCartView extends StatefulWidget {
 }
 
 class _MyCartViewState extends State<MyCartView> {
+  double totalPrice = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,6 +78,10 @@ class _MyCartViewState extends State<MyCartView> {
                                     const EdgeInsets.only(left: 0, right: 10),
                                 ontap: () {
                                   items[index].quantity++;
+                                  totalPrice = items[index].price! *
+                                      items[index].quantity;
+
+                                  print(items[index].quantity);
                                   setState(() {});
                                 },
                                 icon: const Icon(
@@ -92,6 +98,10 @@ class _MyCartViewState extends State<MyCartView> {
                                   if (items[index].quantity > 0) {
                                     items[index].quantity--;
                                   }
+                                  totalPrice = items[index].price! *
+                                      items[index].quantity;
+
+                                  print(items[index].quantity);
                                   setState(() {});
                                 },
                                 icon: const Icon(
@@ -100,7 +110,7 @@ class _MyCartViewState extends State<MyCartView> {
                                 ),
                               ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                       const Spacer(),
@@ -135,7 +145,7 @@ class _MyCartViewState extends State<MyCartView> {
                         ),
                         const Spacer(),
                         Text(
-                          '\$ 95.00',
+                          totalPrice.toStringAsFixed(2),
                           style: GetsmallFontsBlack(
                               fontweight: FontWeight.w700, fontsize: 20),
                         ),
@@ -146,7 +156,11 @@ class _MyCartViewState extends State<MyCartView> {
                         width: double.infinity,
                         height: 60,
                         child: CustomElevatedButton(
-                            onPressed: () {}, textName: 'Check out'))
+                            onPressed: () {
+                              totalPrice == 0;
+                              setState(() {});
+                            },
+                            textName: 'Check out'))
                   ],
                 ),
               ))

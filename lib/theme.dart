@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
 
 final themeData = ThemeData(
+    scaffoldBackgroundColor: Colors.white,
     inputDecorationTheme: const InputDecorationTheme(
       suffixIconColor: Colors.black,
       enabledBorder: UnderlineInputBorder(
