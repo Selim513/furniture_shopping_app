@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
 
 final themeData = ThemeData(
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: const Color(0xffF5F5F5),
     inputDecorationTheme: const InputDecorationTheme(
       suffixIconColor: Colors.black,
       enabledBorder: UnderlineInputBorder(
@@ -19,6 +19,7 @@ final themeData = ThemeData(
       ),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.white,
+      centerTitle: true,
+      backgroundColor: const Color(0xffF5F5F5),
       titleTextStyle: GetprimaryTitleFontBlack(fontsize: 17),
     ));

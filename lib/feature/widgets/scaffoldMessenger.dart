@@ -8,7 +8,7 @@ ShowSuccessMessage(message, context) {
     shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(20)),
     content: Text(
       message,
-      textAlign: TextAlign.end,
+      textAlign: TextAlign.center,
     ),
   ));
 }

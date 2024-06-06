@@ -26,6 +26,17 @@ TextStyle GetsmallFontsGrey(
       fontWeight: fontweight, fontSize: fontsize, color: color, height: height);
 }
 
+TextStyle GetBlackSmallFont(
+    {FontWeight fontweight = FontWeight.w400,
+    double fontsize = 18,
+    color = Colors.black}) {
+  return GoogleFonts.nunitoSans(
+    fontWeight: fontweight,
+    fontSize: fontsize,
+    color: color,
+  );
+}
+
 TextStyle GetprimaryTitleFontBlack(
     {FontWeight fontweight = FontWeight.w700,
     double fontsize = 24,

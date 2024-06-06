@@ -6,7 +6,7 @@ import 'package:furniture_shopping_app/core/auth/cubit_state.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
 import 'package:furniture_shopping_app/core/functions/email_validate.dart';
 import 'package:furniture_shopping_app/core/functions/route.dart';
-import 'package:furniture_shopping_app/feature/views/home/home.dart';
+import 'package:furniture_shopping_app/feature/views/home/bottomNavBar.dart';
 import 'package:furniture_shopping_app/feature/views/register_login/login.dart';
 import 'package:furniture_shopping_app/feature/widgets/custom_textform.dart';
 import 'package:furniture_shopping_app/feature/widgets/scaffoldMessenger.dart';
@@ -35,7 +35,7 @@ class _RegisterViewState extends State<RegisterView> {
       listener: (context, state) async {
         if (state is RegisterSuccessState) {
           ShowSuccessMessage(state.successMessage, context);
-          gotoPushReplacement(context, const HomeView());
+          gotoPushReplacement(context, const BottomNavBarView());
         } else if (state is RegisterErrorState) {
           showErrorMessage(state.errorMessage, context);
           print(state.errorMessage);

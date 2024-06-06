@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
+import 'package:furniture_shopping_app/core/functions/route.dart';
+import 'package:furniture_shopping_app/feature/views/myCart/successOrder.dart';
 import 'package:furniture_shopping_app/feature/widgets/customAppBarIcons.dart';
 import 'package:furniture_shopping_app/feature/widgets/customWhiteContainer.dart';
 import 'package:furniture_shopping_app/feature/widgets/custombutton.dart';
@@ -159,7 +161,10 @@ class _CheckOutViewState extends State<CheckOutView> {
                 height: 60,
                 width: double.infinity,
                 child: CustomElevatedButton(
-                    onPressed: () {}, textName: 'SUBMIT ORDER'))
+                    onPressed: () {
+                      gotoPush(context, const SuccessOrderView());
+                    },
+                    textName: 'SUBMIT ORDER'))
           ],
         ),
       ),

@@ -4,14 +4,16 @@ import 'package:flutter_svg/svg.dart';
 class AppBarIcons extends StatelessWidget {
   const AppBarIcons(
       {super.key,
+      this.colorFilter,
       required this.icon,
-      required this.ontap,
+      this.ontap,
       this.height = 24,
       this.width = 24});
   final String icon;
   final Function()? ontap;
   final double? height;
   final double? width;
+  final ColorFilter? colorFilter;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,8 @@ class AppBarIcons extends StatelessWidget {
       child: SizedBox(
         height: height,
         width: width,
-        child: SvgPicture.asset('assets/icons/$icon.svg'),
+        child: SvgPicture.asset('assets/icons/$icon.svg',
+            colorFilter: colorFilter),
       ),
     );
   }

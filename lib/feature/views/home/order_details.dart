@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
 import 'package:furniture_shopping_app/core/functions/route.dart';
 import 'package:furniture_shopping_app/feature/views/home/bottomNavBar.dart';
+import 'package:furniture_shopping_app/feature/views/home/ratingView.dart';
 import 'package:furniture_shopping_app/feature/widgets/custombutton.dart';
 import 'package:gap/gap.dart';
 
@@ -103,6 +104,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                       children: [
                         GestureDetector(
                           onTap: () {
+                            gotoPush(context, const RatingView());
                             selected = !selected;
                             setState(() {});
                           },

@@ -46,4 +46,27 @@ class AuthCubit extends Cubit<AuthState> {
           errorMessage: 'Something went Wrong Please try again later.'));
     }
   }
+
+  Login(String email, String password) async {
+    emit(LoginLoadingState());
+    try {
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      emit(LoginSuccessState(successLoginMessage: 'Welcome Back'));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+        emit(LoginErrorState(
+            errorLoginMessage:
+                'No user found for that email. Please check the email address and try again, or register a new account if you don\'t have one.'));
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+        emit(LoginErrorState(
+            errorLoginMessage:
+                'Incorrect password. Please try again or reset your password if you\'ve forgotten it.'));
+      } else {
+        print(e.toString());
+      }
+    }
+  }
 }

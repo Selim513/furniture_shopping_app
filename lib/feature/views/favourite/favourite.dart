@@ -5,6 +5,7 @@ import 'package:furniture_shopping_app/core/model/item_model.dart';
 import 'package:furniture_shopping_app/feature/views/myCart/mycart.dart';
 import 'package:furniture_shopping_app/feature/widgets/customAppBarIcons.dart';
 import 'package:furniture_shopping_app/feature/widgets/custombutton.dart';
+import 'package:furniture_shopping_app/feature/widgets/scaffoldMessenger.dart';
 import 'package:gap/gap.dart';
 
 class FavoritesView extends StatelessWidget {
@@ -120,7 +121,10 @@ class FavoritesView extends StatelessWidget {
               child: SizedBox(
                 height: 60,
                 child: CustomElevatedButton(
-                    onPressed: () {}, textName: 'Add All to my cart'),
+                    onPressed: () {
+                      ShowSuccessMessage('Hellow', context);
+                    },
+                    textName: 'Add All to my cart'),
               ))
         ],
       ),
