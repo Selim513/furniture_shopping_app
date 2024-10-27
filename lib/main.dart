@@ -2,8 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture_shopping_app/core/auth/cubit.dart';
-import 'package:furniture_shopping_app/feature/views/boarding.dart';
+import 'package:furniture_shopping_app/feature/auth/presentation/manger/login_cubit/login_cubit.dart';
+import 'package:furniture_shopping_app/feature/auth/presentation/manger/register_cubit/register_cubit.dart';
+import 'package:furniture_shopping_app/feature/onboarding/presentation/views/boarding.dart';
 import 'package:furniture_shopping_app/feature/views/home/bottomNavBar.dart';
 import 'package:furniture_shopping_app/firebase_options.dart';
 import 'package:furniture_shopping_app/theme.dart';
@@ -21,16 +22,21 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => RegisterCubit(),
+        ),
+        BlocProvider(
+          create: (context) => LoginCubit(),
+        ),
+      ],
       child: MaterialApp(
           theme: themeData,
           debugShowCheckedModeBanner: false,
-          home:
-              // const LoginView()
-              FirebaseAuth.instance.currentUser == null
-                  ? const GetStartedView()
-                  : const BottomNavBarView()),
+          home: FirebaseAuth.instance.currentUser == null
+              ? const GetStartedView()
+              : const BottomNavBarView()),
     );
   }
 }

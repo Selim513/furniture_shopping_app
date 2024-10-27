@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
 import 'package:furniture_shopping_app/core/functions/route.dart';
+import 'package:furniture_shopping_app/core/model/item_model.dart';
+import 'package:furniture_shopping_app/feature/views/favourite/favourite.dart';
 import 'package:furniture_shopping_app/feature/views/home/bottomNavBar.dart';
-import 'package:furniture_shopping_app/feature/views/home/ratingView.dart';
 import 'package:furniture_shopping_app/feature/widgets/custombutton.dart';
 import 'package:gap/gap.dart';
 
@@ -10,8 +11,8 @@ import '../../widgets/customAdd_Remove_container.dart';
 import '../../widgets/customIconButton.dart';
 
 class OrderDetailsView extends StatefulWidget {
-  const OrderDetailsView({super.key});
-
+  const OrderDetailsView({super.key, required this.item});
+  final ItemModel item;
   @override
   State<OrderDetailsView> createState() => _OrderDetailsViewState();
 }
@@ -31,14 +32,14 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                 padding: const EdgeInsets.only(top: 50, left: 30),
                 alignment: Alignment.topLeft,
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(50),
                     ),
                     image: DecorationImage(
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                       image: AssetImage(
-                        'assets/lamp.png',
+                        widget.item.image!,
                       ),
                     )),
                 child: IconButton(
@@ -60,7 +61,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                     Row(
                       children: [
                         Text(
-                          'Minimal Stand',
+                          "${widget.item.name}",
                           style: GetTiteldFontsblack(fontsize: 24),
                         ),
                       ],
@@ -68,7 +69,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                     Row(
                       children: [
                         Text(
-                          "\$ 50",
+                          "\$ ${widget.item.price}",
                           style: GetsmallFontsBlack(fontsize: 30),
                         ),
                         const Spacer(),
@@ -104,7 +105,6 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            gotoPush(context, const RatingView());
                             selected = !selected;
                             setState(() {});
                           },
@@ -132,7 +132,9 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                     ),
                     const Gap(5),
                     Text(
-                      'Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. ',
+                      (widget.item.reviews == null)
+                          ? "Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. "
+                          : "${widget.item.reviews}",
                       style: GetsmallFontsGrey(fontsize: 14, height: 0),
                     ),
                     const Spacer(),
@@ -143,7 +145,9 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                           width: 60,
                           child: CustomIconButton(
                             icon: const Icon(Icons.bookmark_border),
-                            ontap: () {},
+                            ontap: () {
+                              gotoPush(context, const FavoritesView());
+                            },
                           ),
                         ),
                         const Gap(20),

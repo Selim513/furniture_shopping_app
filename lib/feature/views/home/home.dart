@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/fonts/fonts.dart';
 import 'package:furniture_shopping_app/core/functions/route.dart';
+import 'package:furniture_shopping_app/core/model/item_model.dart';
 import 'package:furniture_shopping_app/feature/views/home/order_details.dart';
 import 'package:furniture_shopping_app/feature/views/myCart/mycart.dart';
 import 'package:furniture_shopping_app/feature/widgets/CategoriesWidget.dart';
@@ -59,7 +60,7 @@ class _HomeViewState extends State<HomeView> {
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, childAspectRatio: 0.65),
-                  itemCount: 16,
+                  itemCount: items.length,
                   itemBuilder: (context, index) {
                     return Container(
                       padding: const EdgeInsets.all(10),
@@ -69,7 +70,7 @@ class _HomeViewState extends State<HomeView> {
                           Stack(
                             children: [
                               Image.asset(
-                                'assets/lamp.png',
+                                items[index].image!,
                                 height: 200,
                                 width: 200,
                               ),
@@ -79,7 +80,10 @@ class _HomeViewState extends State<HomeView> {
                                 child: CustomIconButton(
                                   ontap: () {
                                     gotoPushReplacement(
-                                        context, const OrderDetailsView());
+                                        context,
+                                        OrderDetailsView(
+                                          item: items[index],
+                                        ));
                                   },
                                   icon: const Icon(
                                     Icons.shopping_bag,
@@ -92,13 +96,13 @@ class _HomeViewState extends State<HomeView> {
                           Row(
                             children: [
                               Text(
-                                'Black Simple Lamp',
+                                items[index].name!,
                                 style: GetsmallFontsGrey(fontsize: 14),
                               ),
                             ],
                           ),
-                          const Row(
-                            children: [Text('\$ 12.00')],
+                          Row(
+                            children: [Text('\$ ${items[index].price}')],
                           )
                         ],
                       ),

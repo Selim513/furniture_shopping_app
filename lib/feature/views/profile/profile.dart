@@ -9,7 +9,7 @@ import 'package:furniture_shopping_app/feature/views/profile/myReviews.dart';
 import 'package:furniture_shopping_app/feature/views/profile/myorder.dart';
 import 'package:furniture_shopping_app/feature/views/profile/settings.dart';
 import 'package:furniture_shopping_app/feature/views/profile/shipping_Adress.dart';
-import 'package:furniture_shopping_app/feature/views/register_login/login.dart';
+import 'package:furniture_shopping_app/feature/auth/presentation/views/login.dart';
 import 'package:furniture_shopping_app/feature/widgets/customAppBarIcons.dart';
 import 'package:furniture_shopping_app/feature/widgets/customWhiteContainer.dart';
 import 'package:furniture_shopping_app/feature/widgets/custombutton.dart';
